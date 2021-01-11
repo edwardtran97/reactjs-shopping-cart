@@ -1,5 +1,7 @@
+import { Typography } from "@material-ui/core";
 import React from "react";
-import './Slider.css';
+import { Link } from "react-router-dom";
+import "./Slider.css";
 
 Slider.propTypes = {};
 
@@ -15,8 +17,12 @@ function Slider(props) {
             <div className="col">
               <div className="main_slider_content">
                 <h6>Spring / Summer Collection 2017</h6>
-                <h1>Get up to 30% Off New Arrivals</h1>
-                <div className="red_button shop_now_button">shop now</div>
+                <Typography variant="h2">
+                  Get up to 30% Off New Arrivals
+                </Typography>
+                <Link to={"/ShopPage"} className="red_button shop_now_button">
+                  shop now
+                </Link>
               </div>
             </div>
           </div>
