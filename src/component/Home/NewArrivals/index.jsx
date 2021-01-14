@@ -22,29 +22,37 @@ function NewArrivals(props) {
   const handleCategoryClick = (category) => {
     setActiveCategoryId(category.id);
   };
+
   useEffect(() => {
-    async function fetchCategories() {
+    const fetchCategories = async () => {
       try {
-        const categoriesApi = await categoryApi.getAll({ _limit: 10 });
-        const Categories = await categoriesApi.data;
-        setCategories(Categories);
+        const params = {
+          _limit: 10,
+        };
+        const response = await categoryApi.getAll(params);
+        setCategories(response.data);
       } catch (error) {
         console.log({ error });
       }
-    }
+    };
     fetchCategories();
   }, []);
 
   useEffect(() => {
-    async function fetchProductList() {
+    const fetchProductList = async () => {
       try {
-        const params = { categoryId: ActiveCategoryId, _page: 1, _limit: 8 };
-        const productsApi = await productApi.getAll(params);
-        setProductList(productsApi.data);
+        const params = {
+          categoryId: ActiveCategoryId,
+          _page: 1,
+          _limit: 8,
+        };
+        const response = await productApi.getAll(params);
+        // console.log(response.data);
+        setProductList(response.data);
       } catch (error) {
         console.log("Failed to fetch data: ", error.message);
       }
-    }
+    };
     fetchProductList();
   }, [ActiveCategoryId]);
 
