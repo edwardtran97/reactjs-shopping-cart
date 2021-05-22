@@ -1,4 +1,4 @@
-# Simple E-Commerce Website by ReactJS
+# Simple Cart for E-Commerce Website by ReactJS
 
 ## Description
 
